@@ -18,3 +18,14 @@ Un client désire une application pour son club de pêche. L'application devra p
 Utiliser REACT pour l'application.
 Utiliser Symfony pour l'API.
 Créer une based de  données .
+
+
+TÂCHES EFFECTUE ENSEMBLE :
+- Déterminer le contenu de la bdd
+
+
+
+TÂCHES REALISE PAR MORGANE :
+
+
+TÂCHES REALISE PAR BENJAMIN :
