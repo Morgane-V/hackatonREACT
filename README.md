@@ -20,12 +20,13 @@ Utiliser Symfony pour l'API.
 Créer une based de  données .
 
 
-TÂCHES EFFECTUE ENSEMBLE :
+
+TÂCHES EFFECTUE EN DUO :
 - Déterminer le contenu de la bdd
 
 
 
-TÂCHES REALISE PAR MORGANE :
+TÂCHES REFFECTUE PAR MORGANE :
 
 
-TÂCHES REALISE PAR BENJAMIN :
+TÂCHES REFFECTUE PAR BENJAMIN :
