@@ -20,11 +20,6 @@ class Post
   private $id;
 
   /**
-   * @ORM\Column(type="string", length=255)
-   */
-  private $title;
-
-  /**
    * @ORM\Column(type="text")
    */
   private $content;
@@ -44,6 +39,31 @@ class Post
    */
   private $Fish;
 
+  /**
+   * @ORM\Column(type="blob")
+   */
+  private $picture;
+
+  /**
+   * @ORM\Column(type="integer")
+   */
+  private $size;
+
+  /**
+   * @ORM\Column(type="integer")
+   */
+  private $weight;
+
+  /**
+   * @ORM\Column(type="string", length=255)
+   */
+  private $username;
+
+  /**
+   * @ORM\Column(type="string", length=255)
+   */
+  private $lastname;
+
   public function __construct()
   {
     $this->comments = new ArrayCollection();
@@ -53,18 +73,6 @@ class Post
   public function getId(): ?int
   {
     return $this->id;
-  }
-
-  public function getTitle(): ?string
-  {
-    return $this->title;
-  }
-
-  public function setTitle(string $title): self
-  {
-    $this->title = $title;
-
-    return $this;
   }
 
   public function getContent(): ?string
@@ -149,6 +157,66 @@ class Post
         $Fish->setPost(null);
       }
     }
+
+    return $this;
+  }
+
+  public function getPicture()
+  {
+    return $this->picture;
+  }
+
+  public function setPicture($picture): self
+  {
+    $this->picture = $picture;
+
+    return $this;
+  }
+
+  public function getSize(): ?int
+  {
+    return $this->size;
+  }
+
+  public function setSize(int $size): self
+  {
+    $this->size = $size;
+
+    return $this;
+  }
+
+  public function getWeight(): ?int
+  {
+    return $this->weight;
+  }
+
+  public function setWeight(int $weight): self
+  {
+    $this->weight = $weight;
+
+    return $this;
+  }
+
+  public function getUsername(): ?string
+  {
+    return $this->username;
+  }
+
+  public function setUsername(string $username): self
+  {
+    $this->username = $username;
+
+    return $this;
+  }
+
+  public function getLastname(): ?string
+  {
+    return $this->lastname;
+  }
+
+  public function setLastname(string $lastname): self
+  {
+    $this->lastname = $lastname;
 
     return $this;
   }
