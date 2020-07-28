@@ -35,11 +35,6 @@ class Post
   private $comments;
 
   /**
-   * @ORM\OneToMany(targetEntity=Fish::class, mappedBy="post")
-   */
-  private $Fish;
-
-  /**
    * @ORM\Column(type="blob")
    */
   private $picture;
@@ -63,6 +58,11 @@ class Post
    * @ORM\Column(type="string", length=255)
    */
   private $lastname;
+
+  /**
+   * @ORM\ManyToOne(targetEntity=Fish::class, inversedBy="post")
+   */
+  private $fish;
 
   public function __construct()
   {
@@ -219,5 +219,12 @@ class Post
     $this->lastname = $lastname;
 
     return $this;
+  }
+
+  public function setFish(?Fish $fish): self
+  {
+      $this->fish = $fish;
+
+      return $this;
   }
 }
