@@ -39,9 +39,15 @@ class Post
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=fish::class, mappedBy="post")
+     */
+    private $fish;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->fish = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -110,6 +116,37 @@ class Post
             // set the owning side to null (unless already changed)
             if ($comment->getPost() === $this) {
                 $comment->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|fish[]
+     */
+    public function getFish(): Collection
+    {
+        return $this->fish;
+    }
+
+    public function addFish(fish $fish): self
+    {
+        if (!$this->fish->contains($fish)) {
+            $this->fish[] = $fish;
+            $fish->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFish(fish $fish): self
+    {
+        if ($this->fish->contains($fish)) {
+            $this->fish->removeElement($fish);
+            // set the owning side to null (unless already changed)
+            if ($fish->getPost() === $this) {
+                $fish->setPost(null);
             }
         }
 

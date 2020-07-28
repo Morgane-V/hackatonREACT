@@ -23,7 +23,6 @@ class ApiController extends AbstractController
     // on range la valeur de cette opération dans $posts. en fait c'est un objet réponse de la base contenant la donnée
     $posts = $postRepository->findAll();
 
-
     // on normalise cette objet pour le typer Tableau associatif
     $post_normalize = $normalizer->normalize($posts);
 
