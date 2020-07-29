@@ -27,7 +27,7 @@ class App extends React.Component {
 
 
         <PostForm />
-        {this.state.items.map(items => (<p key={items.id}>{items.picture} <br /> {items.lastname} {items.username} <br /> {items.fish} <br /> {items.weight} <br /> {items.size} <br /> {items.content}</p>))}
+        {this.state.items.map(items => (<p key={items.id}>{items.picture} <br /> {items.lastname} {items.username} <br /> {items.fish_id} <br /> {items.weight} <br /> {items.size} <br /> {items.content}</p>))}
       </div>
     )
   }
