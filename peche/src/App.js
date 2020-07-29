@@ -2,6 +2,7 @@ import React from 'react';
 import PostForm from './PostForm';
 
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -19,11 +20,14 @@ class App extends React.Component {
         /*=> console.log(posts));*/
   }
 
+  
   render() {
     return (
       <div className="App">
+
+
         <PostForm />
-        {this.state.items.map(items => (<p key= {items.id}>{items.photo} <br/> {items.prenom} {items.nom} <br/> {items.poisson} <br/> {items.poid} <br/> {items.taille} <br/> {items.content}</p>))}
+        {this.state.items.map(items => (<p key={items.id}>{items.picture} <br /> {items.lastname} {items.username} <br /> {items.fish} <br /> {items.weight} <br /> {items.size} <br /> {items.content}</p>))}
       </div>
     )
   }
