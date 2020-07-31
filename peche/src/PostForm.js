@@ -1,83 +1,24 @@
-/* import React, { Component } from 'react'
-import axios from 'axios'
-
-class PostForm extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            title: '',
-            content: ''
-        }
-    }
-
-    changeHandler = e => {
-        this.setState({ [e.target.name]: e.target.value})
-    }
-
-    submitHandler = e => {
-        e.preventDefault()
-        console.log(this.state)
-        axios.post('http://127.0.0.1:8000/api/post', this.state)
-        .then(res => {
-            console.log(res)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }
-
-    render() {
-        const { username, lastname, size, weight, content, picture } = this.state
-        return (
-            <div>
-                
-                <form onSubmit={this.submitHandler}>
-                    <h2>Ajouter une prise</h2>
-                    <div>
-                        <div>
-                            <label name="fish">Poisson : </label>
-                            <select onChange={this.changeHandler}>
-                                <option value="1">Anguille</option>
-                                <option value="2">Brême</option>
-                                <option value="3">Brochet</option>
-                                <option value="4">Carassin</option>
-                                <option value="5">Carpe</option>
-                                <option value="6">Esturgeon</option>
-                                <option value="7">Tanche</option>
-                            </select>
-                        </div>
-                        <br/>
-                        <div><input type="text" name="username" placeholder="Prénom" value={username} onChange={this.changeHandler}/></div>
-                        <div><input type="text" name="lastname" placeholder="Nom" value={lastname} onChange={this.changeHandler}/></div>
-                        <input type="text" name="size" placeholder="Taille du poisson" value={size} onChange={this.changeHandler}/> cm <br/><br/>
-                        <input type="text" name="weight" placeholder="Poid du poisson" value={weight} onChange={this.changeHandler}/> gr<br/><br/>
-                        <textarea type="text" name="content" placeholder="Texte" value={content} onChange={this.changeHandler}/><br/><br/>
-                        <div>
-                            <p>Choisir une photo de votre prise :</p>
-                            <input type="file" id="picture" name="picture" accept="image/png, image/jpeg" valu={picture} onChange={this.changeHandler}/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div><button type="submit">Poster ma prise</button></div>
-                </form>
-            </div>
-        )
-    }
-}
-
-export default PostForm  */
-
-
-
 import React, { Component } from 'react'
 import axios from 'axios'
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 
 class PostForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: '',
-            content: ''
+            username: '',
+            lastname: '',
+/*             size: "",
+            weight: "", */
+            content: '',
+            // picture: '',
+            id_fish: ''
         }
     }
 
@@ -98,17 +39,84 @@ class PostForm extends Component {
     }
 
     render() {
-        const { username, lastname } = this.state
+        const { username, lastname,  content } = this.state
         return (
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <div><input type="text" name="username" placeholder="Prénom" value={username} onChange={this.changeHandler}/></div>
-                    <div><input type="text" name="lastname" placeholder="Nom" value={lastname} onChange={this.changeHandler}/></div>
-                    <div><button type="submit" >Envoyer</button></div>
-                </form>
-            </div>
+            <Container maxWidth="sm">
+            <Box my={20} />
+            <Grid container spacing={4} alignItems="center" justify="center">
+                <Grid item xs={5}>
+                <Box my={1} fontWeight="fontWeightBold" display="flex">
+                    <Typography variant="h5" gutterBottom >Ajouter une prise</Typography>
+                </Box>
+                </Grid>
+            </Grid>
+            <Grid container spacing={4} alignItems="center" justify="center">
+                <Grid item xs={6}>
+                <Box my={1} fontWeight="fontWeightBold">
+                    <Typography variant="h5" gutterBottom>Nom</Typography>
+                </Box>
+                <TextField variant="outlined" name="lastname" placeholder="nom" value={lastname} onChange={this.changeHandler} />
+                </Grid>
+                <Grid item xs={6}>
+                <Box my={1} fontWeight="fontWeightBold">
+                    <Typography variant="h5" gutterBottom>Prenom</Typography>
+                </Box>
+                <TextField variant="outlined" name="username" placeholder="Prenom" value={username} onChange={this.changeHandler} />
+                </Grid>
+{/*                 <Grid item xs={6} >
+                <Box my={1} fontWeight="fontWeightBold">
+                    <Typography variant="h5" gutterBottom>Poissons</Typography>
+                </Box>
+                <Box width="223px">
+                    <TextField
+                    select
+                    variant="outlined"
+                    name="poisson"
+                    fullWidth
+                    value={this.state.poisson ?? ""}
+                    onChange={this.changeHandler}
+                    >
+                    <MenuItem value="anguille">Anguille</MenuItem>
+                    <MenuItem value="brême">Brême</MenuItem>
+                    <MenuItem value="brochet">Brochet</MenuItem>
+                    <MenuItem value="carassin">Carassin</MenuItem>
+                    <MenuItem value="carpe">Carpe</MenuItem>
+                    <MenuItem value="esturgeon">Esturgeon</MenuItem>
+                    <MenuItem value="tanche">Tanche</MenuItem>
+                    </TextField>
+                </Box>
+                </Grid>
+                <Grid item xs={6}>
+                <Box my={1} fontWeight="fontWeightBold">
+                    <Typography variant="h5" gutterBottom>Taille</Typography>
+                </Box>
+                <TextField variant="outlined" name="taille" placeholder="taille" value={this.state.taille ?? ""} onChange={this.changeHandler} />
+                </Grid>
+                <Grid item xs={6}>
+                <Box my={1} fontWeight="fontWeightBold">
+                    <Typography variant="h5" gutterBottom>Poid</Typography>
+                </Box>
+                <TextField variant="outlined" name="poid" placeholder="poid" value={this.state.poid ?? ""} onChange={this.changeHandler} />
+                </Grid> */}
+                <Grid item xs={6}>
+                <Box my={1} fontWeight="fontWeightBold">
+                    <Typography variant="h5" gutterBottom>Content</Typography>
+                </Box>
+                <TextField variant="outlined" name="content" placeholder="content" value={content} onChange={this.changeHandler} />
+                </Grid>
+            </Grid>
+            <Grid container spacing={4} alignItems="center" justify="center">
+                <Grid item xs={4}>
+                <Box mt={2} clone>
+                    <Grid item xs={12}>
+                    <Button variant="outlined" size="large" align="center" onClick={this.submitHandler}>Valider</Button>
+                    </Grid>
+                </Box>
+                </Grid>
+            </Grid>
+            </Container>
         )
+        }
     }
-}
 
 export default PostForm
