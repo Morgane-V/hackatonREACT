@@ -14,11 +14,11 @@ class PostForm extends Component {
         this.state = {
             username: '',
             lastname: '',
-/*             size: "",
-            weight: "", */
             content: '',
             // picture: '',
-            id_fish: ''
+            //id_fish: '',
+            //size: 0
+            // weight: ""
         }
     }
 
@@ -29,7 +29,7 @@ class PostForm extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://127.0.0.1:8000/api/post', this.state)
+        axios.post('http://127.0.0.1:8000/api/post', this.state, this.count)
         .then(res => {
             console.log(res)
         })
@@ -38,8 +38,9 @@ class PostForm extends Component {
         })
     }
 
+
     render() {
-        const { username, lastname,  content } = this.state
+        const { username, lastname,  content, size } = this.state
         return (
             <Container maxWidth="sm">
             <Box my={20} />
@@ -85,18 +86,18 @@ class PostForm extends Component {
                     <MenuItem value="tanche">Tanche</MenuItem>
                     </TextField>
                 </Box>
-                </Grid>
-                <Grid item xs={6}>
+                </Grid>*/}
+{/*                 <Grid item xs={6}>
                 <Box my={1} fontWeight="fontWeightBold">
                     <Typography variant="h5" gutterBottom>Taille</Typography>
                 </Box>
-                <TextField variant="outlined" name="taille" placeholder="taille" value={this.state.taille ?? ""} onChange={this.changeHandler} />
-                </Grid>
-                <Grid item xs={6}>
+                <TextField type="number" variant="outlined" name="size" placeholder="taille" value={size}  onChange={this.changeHandler} />
+                </Grid> */}
+{/*                 <Grid item xs={6}>
                 <Box my={1} fontWeight="fontWeightBold">
                     <Typography variant="h5" gutterBottom>Poid</Typography>
                 </Box>
-                <TextField variant="outlined" name="poid" placeholder="poid" value={this.state.poid ?? ""} onChange={this.changeHandler} />
+                <TextField variant="outlined" name="weight" placeholder="poid" value={weight} onChange={this.changeHandler} />
                 </Grid> */}
                 <Grid item xs={6}>
                 <Box my={1} fontWeight="fontWeightBold">
